@@ -1,0 +1,17 @@
+{
+  "name": "my-boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "script": {
+    "test": "echo \"Erro: no test specified\" && exit 1"
+  },
+  "author": "Rafael Monteiro de Araujo <araujrafa@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  },
+  "engines": {
+    "node": ">=4"
+  }
+}
