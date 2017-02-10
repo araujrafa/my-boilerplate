@@ -1,13 +1,12 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var browserSync = require('browser-sync').create();
-
-gulp.task('sass', function () {
-  return gulp.src('./app/sass/*.scss')
-    .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('./app/css'))
-    .pipe(browserSync.stream());
-});
+var imagemin = require('gulp-imagemin');
+var cssmin = require('gulp-cssmin');
+var concat = require('gulp-concat');
+var htmlmin = require('gulp-htmlmin');
+var uglify = require('gulp-uglify');
+var clean = require('gulp-clean');
 
 gulp.task('serve', function () {
   browserSync.init({
@@ -19,8 +18,54 @@ gulp.task('serve', function () {
 
   gulp.watch("app/*.html").on("change", browserSync.reload);
   gulp.watch("app/sass/*.scss", ['sass'], browserSync.reload);
+  gulp.watch("app/js/*.js", ['jshint'], browserSync.reload);
 });
 
-gulp.task('default', ['serve'], function () {
-
+gulp.task('sass', function () {
+  return gulp.src('./app/sass/*.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('./app/css'))
+    .pipe(browserSync.stream());
 });
+
+gulp.task('minificar-imagem', function () {
+  return gulp.src('./app/img/*')
+    .pipe(imagemin())
+    .pipe(gulp.dest('./app/img/'));
+});
+
+gulp.task('minificar-css', function () {
+  return gulp.src('./app/css/*.css')
+    .pipe(cssmin())
+    .pipe(concat('app.min.css'))
+    .pipe(gulp.dest('./app/build/css/'))
+});
+
+gulp.task('minificar-html', function () {
+  return gulp.src('./app/*.html')
+    .pipe(htmlmin({collapseWhitespace: true}))
+    .pipe(gulp.dest('./app/build/'))
+});
+
+gulp.task('minificar-js', function () {
+  return gulp.src('./app/js/*.js')
+    .pipe(uglify())
+    .pipe(concat('app.min.js'))
+    .pipe(gulp.dest('./app/build/js/'));
+});
+
+gulp.task('criar-pasta', function () {
+  return gulp.src('./app/*.html')
+  pipe(gulp.dest('!./app/build/'))
+});
+
+gulp.task('clean', function () {
+  return gulp.src('./app/build/')
+    .pipe(clean());
+});
+
+gulp.task('build', ['criar-pasta' , 'sass', 'minificar-js', 'minificar-css', 'minificar-html', 'minificar-imagem'], function () {
+  return gulp.src(['./app/img', './app/fonts']).pipe(gulp.dest('./app/build/'));
+});
+
+gulp.task('default', ['serve'], function () {});
