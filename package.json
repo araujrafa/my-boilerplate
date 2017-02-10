@@ -6,14 +6,12 @@
   "script": {
     "test": "echo \"Erro: no test specified\" && exit 1"
   },
-  "author": "Rafael Monteiro de Araujo <araujrafa@gmail.com>",
-  "license": "MIT",
+  "author": "Rafael Monteiro de Araujo",
+  "email": "araujrafa@gmail.com",
+  "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.18.7",
     "gulp": "^3.9.1",
     "gulp-sass": "^3.1.0"
-  },
-  "engines": {
-    "node": ">=4"
   }
 }
