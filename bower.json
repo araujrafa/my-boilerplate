@@ -1,0 +1,17 @@
+{
+  "name": "my-boilerplate",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Rafael Monteiro de Araujo"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
