@@ -18,7 +18,6 @@ gulp.task('serve', function () {
 
   gulp.watch("app/*.html").on("change", browserSync.reload);
   gulp.watch("app/sass/*.scss", ['sass'], browserSync.reload);
-  gulp.watch("app/js/*.js", ['jshint'], browserSync.reload);
 });
 
 gulp.task('sass', function () {
@@ -37,7 +36,7 @@ gulp.task('minificar-imagem', function () {
 gulp.task('minificar-css', function () {
   return gulp.src('./app/css/*.css')
     .pipe(cssmin())
-    .pipe(concat('app.min.css'))
+    .pipe(concat('main.min.css'))
     .pipe(gulp.dest('./app/build/css/'))
 });
 
@@ -50,7 +49,7 @@ gulp.task('minificar-html', function () {
 gulp.task('minificar-js', function () {
   return gulp.src('./app/js/*.js')
     .pipe(uglify())
-    .pipe(concat('app.min.js'))
+    .pipe(concat('main.min.js'))
     .pipe(gulp.dest('./app/build/js/'));
 });
 
