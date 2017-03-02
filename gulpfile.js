@@ -7,8 +7,9 @@ var concat = require('gulp-concat');
 var htmlmin = require('gulp-htmlmin');
 var uglify = require('gulp-uglify');
 var clean = require('gulp-clean');
+var wiredep = require('wiredep').stream;
 
-gulp.task('serve', function () {
+gulp.task('serve', ['wiredep'], function () {
   browserSync.init({
     server: {
       baseDir: './app',
@@ -61,6 +62,15 @@ gulp.task('criar-pasta', function () {
 gulp.task('clean', function () {
   return gulp.src('./app/build/')
     .pipe(clean());
+});
+
+gulp.task('wiredep', function (){
+  gulp.src('./app/index.html')
+    .pipe(wiredep({
+      optional: 'configuration',
+      goes: 'here'
+    }))
+    .pipe(gulp.dest('./app/'));
 });
 
 gulp.task('build', ['criar-pasta' , 'sass', 'minificar-js', 'minificar-css', 'minificar-html', 'minificar-imagem'], function () {
