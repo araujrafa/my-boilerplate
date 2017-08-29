@@ -1,0 +1,53 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn install
+
+PATH: 
+  /home/raraujo/bin:/home/raraujo/.local/bin:/home/raraujo/bin:/home/raraujo/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
+
+Yarn version: 
+  0.27.5
+
+Node version: 
+  8.1.0
+
+Platform: 
+  linux x64
+
+npm manifest: 
+  {
+    "name": "my-boilerplate",
+    "version": "1.0.0",
+    "description": "",
+    "main": "",
+    "script": {
+      "test": "echo \"Erro: no test specified\" && exit 1"
+    },
+    "author": "Rafael Monteiro de Araujo",
+    "email": "araujrafa@gmail.com",
+    "license": "ISC",
+    "devDependencies": {
+      "browser-sync": "^2.18.13",
+      "gulp": "^3.9.1",
+      "gulp-clean": "^0.3.2",
+      "gulp-concat": "^2.6.1",
+      "gulp-cssmin": "^0.1.7",
+      "gulp-htmlmin": "^3.0.0",
+      "gulp-imagemin": "^3.3.0",
+      "gulp-jshint": "^2.0.4",
+      "gulp-sass": "^3.1.0",
+      "gulp-uglify": "^2.0.1",
+      "jshint": "^2.9.4"
+    },
+    "dependencies": {
+      "wiredep": "^4.0.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: EACCES: permission denied, mkdir '/home/raraujo/projetos/my-boilerplate/node_modules/caw/node_modules/object-assign'

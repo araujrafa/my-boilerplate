@@ -9,7 +9,7 @@ var uglify = require('gulp-uglify');
 var clean = require('gulp-clean');
 var wiredep = require('wiredep').stream;
 
-gulp.task('serve', ['wiredep'], function () {
+gulp.task('serve', function () {
   browserSync.init({
     server: {
       baseDir: './app',
